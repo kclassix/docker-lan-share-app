@@ -18,6 +18,10 @@ COPY ./frontend ./frontend
 RUN cd frontend && npm install
 RUN mkdir -p frontend/certs && cp -r certs/* frontend/certs/
 
+
+# Create .env at root and in frontend
+RUN echo "VITE_BACKEND_URL=https://localhost:3000" | tee .env frontend/.env
+
 # Expose backend and frontend ports
 EXPOSE 3000 5173
 
