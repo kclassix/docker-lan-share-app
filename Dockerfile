@@ -11,7 +11,7 @@ COPY ./certs ./certs
 # Copy and set up backend
 COPY ./backend ./backend
 RUN cd backend && npm install
-RUN mkdir -p backend/certs && cp -r certs/* backend/certs/
+# RUN mkdir -p backend/certs && cp -r certs/* backend/certs/
 
 # Copy and set up frontend
 COPY ./frontend ./frontend
