@@ -16,7 +16,7 @@ RUN mkdir -p backend/certs && cp -r certs/* backend/certs/
 # Copy and set up frontend
 COPY ./frontend ./frontend
 RUN cd frontend && npm install
-RUN mkdir -p frontend/certs && cp -r certs/* frontend/certs/
+# RUN mkdir -p frontend/certs && cp -r certs/* frontend/certs/
 
 
 # Create .env at root and in frontend
