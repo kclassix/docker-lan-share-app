@@ -27,5 +27,5 @@ EXPOSE 3000 5173
 
 # Start backend and frontend dev servers using PM2
 CMD pm2 start backend/index.js --name backend && \
-    pm2 start "npm run dev -- --host" --name frontend --cwd frontend && \
+    pm2 start "npm run dev" --name frontend --cwd frontend && \
     pm2 logs
