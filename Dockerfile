@@ -20,7 +20,7 @@ RUN cd frontend && npm install
 
 
 # Create .env at root and in frontend
-RUN echo "VITE_BACKEND_URL=https://localhost:3000" | tee .env frontend/.env
+RUN echo "VITE_BACKEND_URL=http://localhost:3000" | tee .env frontend/.env
 
 # Expose backend and frontend ports
 EXPOSE 3000 5173
