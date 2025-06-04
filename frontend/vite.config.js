@@ -15,10 +15,10 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       host: '0.0.0.0',
-      https: {
-        key: fs.readFileSync(path.resolve(__dirname, 'certs', 'localhost-key.pem')),
-        cert: fs.readFileSync(path.resolve(__dirname, 'certs', 'localhost.pem')),
-      },
+      // https: {
+      //   key: fs.readFileSync(path.resolve(__dirname, 'certs', 'localhost-key.pem')),
+      //   cert: fs.readFileSync(path.resolve(__dirname, 'certs', 'localhost.pem')),
+      // },
       proxy: {
         '/socket.io': {
           target: env.VITE_BACKEND_URL,
