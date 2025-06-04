@@ -8,8 +8,8 @@ const path = require('path');
 
 const app = express();
 // SSL cert and key
-const cert = fs.readFileSync(path.resolve('certs', 'localhost.pem'));
-const key = fs.readFileSync(path.resolve('certs', 'localhost-key.pem'));
+// const cert = fs.readFileSync(path.resolve('certs', 'localhost.pem'));
+// const key = fs.readFileSync(path.resolve('certs', 'localhost-key.pem'));
 
 // console.log('cert', cert)
 // const httpServer = createServer({ key, cert }, app);
@@ -40,7 +40,8 @@ const key = fs.readFileSync(path.resolve('certs', 'localhost-key.pem'));
 
 
 // const app = express();
-const httpServer = https.createServer({ key, cert }, app);
+// const httpServer = https.createServer({ key, cert }, app);
+const httpServer = https.createServer(app);
 const io = new Server(httpServer, {
   cors: { origin: '*', methods: ['GET', 'POST'] },
 });
