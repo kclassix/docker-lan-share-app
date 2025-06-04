@@ -1,0 +1,34 @@
+services:
+ # Step 1: Run setup script
+  setup:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: ["node", "set-env.js"]
+    # Make sure it runs first and only once
+    restart: "no"
+
+  # Step 2: Backend depends on setup
+  backend:
+    build: ./backend
+    volumes:
+      - ./certs:/app/certs:ro
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+
+  # Step 3: Frontend depends on setup
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./certs:/app/certs:ro
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env
+    environment:
+      - VITE_BACKEND_URL=${VITE_BACKEND_URL}
+    depends_on:
+      - backend
