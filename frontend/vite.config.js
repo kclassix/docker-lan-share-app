@@ -15,8 +15,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       host: '0.0.0.0',
-       allowedHosts: 'all',
-      // https: {
+      allowedHosts: ['localhost', 'my.local.ip', 'docker-lan-share-app.onrender.com'],      // https: {
       //   key: fs.readFileSync(path.resolve(__dirname, 'certs', 'localhost-key.pem')),
       //   cert: fs.readFileSync(path.resolve(__dirname, 'certs', 'localhost.pem')),
       // },
